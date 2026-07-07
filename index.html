@@ -749,6 +749,8 @@ document.querySelectorAll(".card").forEach((card) => {
   window.onYouTubeIframeAPIReady = () => {
     bgPlayer = new YT.Player("yt-bg", {
       videoId: "lgd-uCy_YoA",
+      /* Cookie肥大による413エラー対策：Cookie不要のドメインから読み込む */
+      host: "https://www.youtube-nocookie.com",
       playerVars: {
         autoplay: 1, mute: 1, controls: 0,
         start: SEG_START,
