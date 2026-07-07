@@ -380,6 +380,72 @@ ul { list-style: none; }
 .strength-item h3 { font-size: 1.15rem; margin-bottom: 10px; }
 .strength-item p { color: var(--gray); font-size: .92rem; }
 
+/* ---------- VISION 読み仮名 ---------- */
+.vision-yomi {
+  display: block;
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: .3em;
+  color: var(--green);
+  margin-top: 6px;
+}
+
+/* ---------- PROMISE ---------- */
+.promise-lead {
+  color: var(--gray);
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+}
+.promise-cards { grid-template-columns: repeat(2, 1fr); }
+.promise-cards .card h3 { font-size: 1.4rem; color: var(--green); }
+
+/* ---------- PHILOSOPHY ---------- */
+.philosophy { background: var(--bg2); }
+.philosophy-list {
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+.philosophy-list li {
+  display: grid;
+  grid-template-columns: 70px 120px 1fr;
+  align-items: baseline;
+  gap: 16px;
+  padding: 26px 8px;
+  border-bottom: 1px solid rgba(74, 222, 52, .18);
+  transition: background .3s, padding-left .3s, opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+.philosophy-list li:first-child { border-top: 1px solid rgba(74, 222, 52, .18); }
+.philosophy-list li:hover { background: rgba(74, 222, 52, .05); padding-left: 20px; }
+.ph-num {
+  font-family: var(--font-en);
+  color: var(--green);
+  font-size: 1.1rem;
+  letter-spacing: .15em;
+}
+.philosophy-list h3 { font-size: 1.4rem; font-weight: 900; letter-spacing: .1em; }
+.philosophy-list p { color: var(--gray); font-size: .95rem; }
+
+/* ---------- MESSAGE ---------- */
+.message {
+  background:
+    radial-gradient(700px circle at 15% 30%, rgba(74, 222, 52, .08), transparent 55%),
+    var(--bg);
+}
+.message-copy {
+  font-size: clamp(1.3rem, 3.2vw, 2rem);
+  font-weight: 700;
+  line-height: 2.1;
+  letter-spacing: .05em;
+}
+.message-copy strong { color: var(--green); }
+.message-sign {
+  margin-top: 32px;
+  color: var(--gray);
+  font-size: .95rem;
+  letter-spacing: .1em;
+}
+
 /* ---------- AREA ---------- */
 .area-copy {
   font-size: clamp(1.2rem, 3vw, 1.7rem);
@@ -467,6 +533,11 @@ ul { list-style: none; }
   .cards { grid-template-columns: 1fr; }
   .strength-grid { grid-template-columns: 1fr; }
   .contact-btns { flex-direction: column; align-items: center; }
+  .philosophy-list li {
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+  }
+  .philosophy-list p { grid-column: 2; }
 }
 
 /* 動きを控えたい環境への配慮 */
@@ -493,6 +564,7 @@ ul { list-style: none; }
   <nav class="nav" id="nav">
     <a href="#vision">VISION</a>
     <a href="#service">SERVICE</a>
+    <a href="#promise">PROMISE</a>
     <a href="#strength">STRENGTH</a>
     <a href="#area">AREA</a>
     <a href="#contact" class="nav-cta">CONTACT</a>
@@ -523,7 +595,7 @@ ul { list-style: none; }
         <span class="line js-chars">日本一の</span>
         <span class="line js-chars accent">農家になる</span>
       </h1>
-      <p class="hero-lead">放棄地再生から収穫まで、<br class="sp-only">全力で挑む農業カンパニー。</p>
+      <p class="hero-lead">農業の力で、世界を変える。<br>放棄地再生から収穫まで、全力で挑む農業カンパニー。</p>
       <a href="#contact" class="btn hero-btn">JOIN US<i></i></a>
     </div>
     <div class="scroll-sign"><span></span>SCROLL</div>
@@ -532,12 +604,16 @@ ul { list-style: none; }
   <!-- VISION -->
   <section class="section vision" id="vision">
     <div class="container">
-      <h2 class="sec-title reveal"><span class="en">VISION</span><span class="ja">私たちの想い</span></h2>
-      <p class="vision-copy reveal">耕せない土地なんて、ない。</p>
+      <h2 class="sec-title reveal"><span class="en">VISION</span><span class="ja">企業理念</span></h2>
+      <p class="vision-copy reveal">幸福創農<span class="vision-yomi">— こうふくそうのう —</span></p>
       <p class="vision-text reveal">
-        株式会社MABは、耕作放棄地の再生から生産・収穫まで一気通貫で挑む農業カンパニーです。<br>
-        「日本一の農家になる」— その言葉を掲げ、熱量MAXのチームで農業の未来を切り拓きます。<br>
-        未経験でも本気なら育つ。それが、MABの現場です。
+        幸福創農とは、人の幸福を中心に、農業で社会と世界を良くすると言うこと。<br>
+        私たちは最高品質の野菜を安定供給することで顧客の成果を創出し、
+        社会的課題の解決と地域の繁栄に貢献します。<br><br>
+        目指すのは「日本一の農家になる」こと。<br>
+        それを<strong>生産量・品質・持続可能性</strong>の三位一体で実現します。<br><br>
+        人を守る。地域を守る。日本の食を守る。自然を守る。未来を守る。<br>
+        <strong>『全ては、全てを守るために』</strong>— それが、私たちの根幹にある信念です。
       </p>
     </div>
   </section>
@@ -571,6 +647,55 @@ ul { list-style: none; }
     </div>
   </section>
 
+  <!-- PROMISE -->
+  <section class="section promise" id="promise">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">PROMISE</span><span class="ja">お客様への5つの約束</span></h2>
+      <p class="promise-lead reveal">信頼され、選ばれ続ける農家であるために。<br>私たちは「安心して任せられる農業法人」であり続けます。</p>
+      <div class="cards promise-cards">
+        <article class="card reveal">
+          <div class="card-num">01</div>
+          <h3>安心</h3>
+          <p>生産履歴を明確にし、誰にでも説明できる農業を行います。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">02</div>
+          <h3>安全</h3>
+          <p>食品衛生法を遵守し、健康を第一に考えた野菜づくりを徹底します。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">03</div>
+          <h3>安定</h3>
+          <p>契約栽培を基本とし、年間を通じた安定供給を実現します。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">04</div>
+          <h3>高品質</h3>
+          <p>鮮度・味・見た目に妥協せず、MAB基準の品質を守ります。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">05</div>
+          <h3>適正価格</h3>
+          <p>安さだけを追わず、価値に見合った価格で取引します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section philosophy" id="philosophy">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">PHILOSOPHY</span><span class="ja">未来を創るトップリーダー — 5つの行動規範</span></h2>
+      <ol class="philosophy-list">
+        <li class="reveal"><span class="ph-num">01</span><h3>誠実</h3><p>嘘をつかず真心を通す。守るべきルールをしっかり守る。</p></li>
+        <li class="reveal"><span class="ph-num">02</span><h3>責任</h3><p>どんな状況でもベストを尽くし、自分の役割を果たす。</p></li>
+        <li class="reveal"><span class="ph-num">03</span><h3>挑戦</h3><p>「何の制限もないとしたら」と考え、何事も前向きに挑む。</p></li>
+        <li class="reveal"><span class="ph-num">04</span><h3>感謝</h3><p>お客様・地域・仲間・自然すべての恵みに感謝し、行動で示す。</p></li>
+        <li class="reveal"><span class="ph-num">05</span><h3>貢献</h3><p>世のため人のためになることを、誰よりも喜んで行う。</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- STRENGTH -->
   <section class="section strength" id="strength">
     <div class="strength-marquee" aria-hidden="true">
@@ -594,8 +719,8 @@ ul { list-style: none; }
         </div>
         <div class="strength-item reveal">
           <div class="strength-value"><span class="count" data-count="365">0</span><small>日</small></div>
-          <h3>圧倒的スピードと行動力</h3>
-          <p>思い立ったら即行動。放棄地の再生も新しい挑戦も、止まらずに走り続けます。</p>
+          <h3>契約栽培による安定供給</h3>
+          <p>相場に左右されない経営姿勢と欠品率の低さ。困難な状況でも約束を守り、年間を通じて野菜を届け続けます。</p>
         </div>
       </div>
     </div>
@@ -606,9 +731,23 @@ ul { list-style: none; }
     <div class="container">
       <h2 class="sec-title reveal"><span class="en">AREA</span><span class="ja">対応エリア</span></h2>
       <p class="area-copy reveal">
-        <!-- ▼▼ 対応エリアが決まったらここを書き換えてください ▼▼ -->
-        関東近郊を中心に対応。<br>その他のエリアもお気軽にご相談ください。
+        鹿児島県大崎町を拠点に、九州から全国へ。<br>エリア外のご相談もお気軽にどうぞ。
       </p>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section class="section message" id="message">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">MESSAGE</span><span class="ja">農業に未来はある</span></h2>
+      <p class="message-copy reveal">
+        農業には、未来がある。<br>
+        人を守り、地域を守り、日本を守る力がある。<br>
+        全ては、全てを守るために。<br>
+        そして、日本一の農家になる。<br>
+        <strong>それは、夢ではありません。使命です。</strong>
+      </p>
+      <p class="message-sign reveal">鹿児島県大崎町から、仲間とともに。— 株式会社MAB</p>
     </div>
   </section>
 
