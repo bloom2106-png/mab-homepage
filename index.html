@@ -155,6 +155,13 @@ ul { list-style: none; }
   overflow: hidden;
   z-index: 0;
 }
+/* 動画が再生されるまでの背景（ぼかしたワンシーン） */
+.hero-video::before {
+  content: "";
+  position: absolute; inset: -40px;
+  background: url("https://img.youtube.com/vi/lgd-uCy_YoA/maxresdefault.jpg") center / cover no-repeat;
+  filter: blur(16px) brightness(.85) saturate(1.1);
+}
 .hero-video iframe {
   position: absolute;
   top: 50%; left: 50%;
@@ -169,7 +176,7 @@ ul { list-style: none; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(to bottom, rgba(10, 15, 10, .55), rgba(10, 15, 10, .75) 70%, var(--bg));
+    linear-gradient(to bottom, rgba(10, 15, 10, .45), rgba(10, 15, 10, .62) 70%, var(--bg));
 }
 
 .hero-marquee {
@@ -728,8 +735,15 @@ document.querySelectorAll(".card").forEach((card) => {
   tag.src = "https://www.youtube.com/iframe_api";
   document.head.appendChild(tag);
 
+  let bgPlayer = null;
+  const kick = () => {
+    try {
+      if (bgPlayer && bgPlayer.playVideo) { bgPlayer.mute(); bgPlayer.playVideo(); }
+    } catch (e) { /* noop */ }
+  };
+
   window.onYouTubeIframeAPIReady = () => {
-    new YT.Player("yt-bg", {
+    bgPlayer = new YT.Player("yt-bg", {
       videoId: "lgd-uCy_YoA",
       playerVars: {
         autoplay: 1, mute: 1, controls: 0, loop: 1,
@@ -737,13 +751,25 @@ document.querySelectorAll(".card").forEach((card) => {
         playsinline: 1, rel: 0, iv_load_policy: 3, disablekb: 1,
       },
       events: {
-        onReady: (e) => { e.target.mute(); e.target.playVideo(); },
+        onReady: kick,
         onStateChange: (e) => {
           if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
         },
       },
     });
+    // 自動再生がブロックされた場合の保険：数秒おきに再生を試みる
+    setInterval(() => {
+      if (bgPlayer && bgPlayer.getPlayerState) {
+        const s = bgPlayer.getPlayerState();
+        if (s === YT.PlayerState.CUED || s === YT.PlayerState.UNSTARTED || s === -1 || s === YT.PlayerState.PAUSED) kick();
+      }
+    }, 3000);
   };
+
+  // ユーザーが触れた瞬間にも再生を試みる（スマホ対策）
+  ["click", "touchstart", "scroll", "keydown"].forEach((ev) =>
+    window.addEventListener(ev, kick, { once: true, passive: true })
+  );
 })();
 
 // ---------- ヒーロー背景：パーティクル（種・光をイメージ） ----------
