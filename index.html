@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社MAB | 日本一の農家になる</title>
+<meta name="description" content="株式会社MAB - 放棄地再生から収穫まで、全力で挑む農業カンパニー。日本一の農家になる。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   株式会社MAB - ホームページ
+   ダーク × ビビッドグリーン / 動きのあるデザイン
+============================================ */
+
+:root {
+  --bg: #0a0f0a;
+  --bg2: #101710;
+  --green: #4ade34;
+  --green-dark: #2a8f1c;
+  --white: #f2f5f0;
+  --gray: #9aa89a;
+  --font-en: "Oswald", sans-serif;
+  --font-ja: "Noto Sans JP", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-ja);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.sp-only { display: none; }
+
+/* ---------- ローディング ---------- */
+.loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  transition: transform .8s cubic-bezier(.77, 0, .18, 1);
+}
+.loader.done { transform: translateY(-100%); }
+.loader-logo {
+  font-family: var(--font-en);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--green);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.loader-bar {
+  width: 160px; height: 2px;
+  background: rgba(255,255,255,.15);
+  position: relative; overflow: hidden;
+}
+.loader-bar::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--green);
+  transform-origin: left;
+  animation: loadbar 1s ease forwards;
+}
+@keyframes loadbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
+
+/* ---------- ヘッダー ---------- */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 5vw;
+  transition: background .4s, padding .4s;
+}
+.header.scrolled {
+  background: rgba(10, 15, 10, .85);
+  backdrop-filter: blur(12px);
+  padding: 12px 5vw;
+  border-bottom: 1px solid rgba(74, 222, 52, .15);
+}
+.header-logo {
+  font-family: var(--font-en);
+  font-size: 1.6rem; font-weight: 700; letter-spacing: .08em;
+}
+.header-logo span { color: var(--green); }
+.nav { display: flex; align-items: center; gap: 32px; }
+.nav a {
+  font-family: var(--font-en);
+  font-size: .95rem; letter-spacing: .12em;
+  position: relative;
+}
+.nav a:not(.nav-cta)::after {
+  content: ""; position: absolute; left: 0; bottom: -6px;
+  width: 100%; height: 2px; background: var(--green);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .35s cubic-bezier(.77, 0, .18, 1);
+}
+.nav a:not(.nav-cta):hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-cta {
+  padding: 8px 24px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 999px;
+  transition: background .3s, color .3s;
+}
+.nav-cta:hover { background: var(--green); color: var(--bg); }
+
+.hamburger { display: none; }
+
+/* ---------- 共通ボタン ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 44px;
+  background: var(--green);
+  color: var(--bg);
+  font-weight: 700; font-size: 1rem;
+  border-radius: 999px;
+  position: relative; overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.btn i {
+  width: 22px; height: 2px; background: currentColor;
+  position: relative; transition: transform .3s;
+}
+.btn i::after {
+  content: ""; position: absolute; right: 0; top: -4px;
+  width: 10px; height: 2px; background: currentColor;
+  transform: rotate(45deg); transform-origin: right center;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(74, 222, 52, .35); }
+.btn:hover i { transform: translateX(6px); }
+.btn-outline { background: transparent; border: 1px solid var(--green); color: var(--green); }
+.btn-outline:hover { box-shadow: 0 10px 30px rgba(74, 222, 52, .2); }
+
+/* ---------- ヒーロー ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+#particles { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.hero-marquee {
+  position: absolute; top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-en);
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 700;
+  color: rgba(74, 222, 52, .07);
+  -webkit-text-stroke: 2px rgba(74, 222, 52, .45);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
+.marquee-track.slow { animation-duration: 45s; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.hero-inner {
+  position: relative; z-index: 2;
+  padding: 0 6vw;
+}
+.hero-sub {
+  font-family: var(--font-en);
+  letter-spacing: .3em;
+  color: var(--green);
+  font-size: clamp(.8rem, 1.5vw, 1rem);
+  margin-bottom: 16px;
+}
+.hero-copy {
+  font-size: clamp(2.6rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: .04em;
+}
+.hero-copy .line { display: block; }
+.hero-copy .accent {
+  color: var(--green);
+  text-shadow: 0 0 40px rgba(74, 222, 52, .45);
+}
+/* 1文字ずつ立ち上がるアニメーション（JSでspan分割） */
+.js-chars .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1.2em) rotate(8deg);
+  animation: charUp .7s cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: calc(var(--i) * .045s + .3s);
+}
+@keyframes charUp {
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+.hero-lead {
+  margin-top: 28px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--gray);
+  opacity: 0;
+  animation: fadeUp .8s ease forwards;
+  animation-delay: 1.2s;
+}
+.hero-btn {
+  margin-top: 36px;
+  font-family: var(--font-en);
+  letter-spacing: .15em;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards;
+  animation-delay: 1.5s;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-sign {
+  position: absolute; bottom: 32px; left: 6vw;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-en);
+  font-size: .75rem; letter-spacing: .3em;
+  color: var(--gray);
+}
+.scroll-sign span {
+  display: block; width: 48px; height: 1px;
+  background: var(--gray);
+  position: relative; overflow: hidden;
+}
+.scroll-sign span::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--green);
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* ---------- セクション共通 ---------- */
+.section { padding: 120px 0; position: relative; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 6vw; }
+
+.sec-title { margin-bottom: 56px; }
+.sec-title .en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: .06em;
+  line-height: 1.1;
+  background: linear-gradient(90deg, var(--white), var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.sec-title .ja {
+  display: block;
+  margin-top: 8px;
+  font-size: .95rem;
+  color: var(--green);
+  letter-spacing: .2em;
+}
+
+/* スクロールで出現 */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ---------- VISION ---------- */
+.vision { background: var(--bg2); }
+.vision-copy {
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 28px;
+  letter-spacing: .05em;
+}
+.vision-text { color: var(--gray); font-size: 1.02rem; }
+
+/* ---------- SERVICE ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.card {
+  padding: 40px 32px;
+  background: var(--bg2);
+  border: 1px solid rgba(74, 222, 52, .15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .4s, opacity .8s ease;
+}
+.card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(74, 222, 52, .12), transparent 45%);
+  opacity: 0; transition: opacity .4s;
+}
+.card:hover { transform: translateY(-8px); border-color: rgba(74, 222, 52, .5); }
+.card:hover::before { opacity: 1; }
+.card-num {
+  font-family: var(--font-en);
+  font-size: 1rem; color: var(--green);
+  letter-spacing: .15em;
+  margin-bottom: 14px;
+}
+.card h3 { font-size: 1.25rem; margin-bottom: 12px; font-weight: 700; }
+.card p { color: var(--gray); font-size: .95rem; }
+
+/* ---------- STRENGTH ---------- */
+.strength { background: var(--bg2); overflow: hidden; }
+.strength-marquee {
+  position: absolute; top: 20px; left: 0; right: 0;
+  font-family: var(--font-en);
+  font-size: 4rem; font-weight: 700;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, .18);
+  pointer-events: none; user-select: none;
+}
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.strength-value {
+  font-family: var(--font-en);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.strength-value small {
+  font-family: var(--font-ja);
+  font-size: 1.1rem; color: var(--white);
+  margin-left: 6px;
+}
+.strength-item h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.strength-item p { color: var(--gray); font-size: .92rem; }
+
+/* ---------- AREA ---------- */
+.area-copy {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* ---------- CONTACT ---------- */
+.contact {
+  background:
+    radial-gradient(800px circle at 80% 20%, rgba(74, 222, 52, .1), transparent 50%),
+    var(--bg2);
+  text-align: center;
+}
+.contact .sec-title { text-align: center; }
+.contact-copy {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.contact-btns {
+  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.sns { display: flex; justify-content: center; gap: 32px; }
+.sns a {
+  font-family: var(--font-en);
+  letter-spacing: .1em;
+  color: var(--gray);
+  transition: color .3s;
+  position: relative;
+}
+.sns a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px;
+  width: 100%; height: 1px; background: var(--green);
+  transform: scaleX(0); transition: transform .3s;
+}
+.sns a:hover { color: var(--green); }
+.sns a:hover::after { transform: scaleX(1); }
+
+/* ---------- フッター ---------- */
+.footer {
+  padding: 48px 6vw;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+.footer-logo {
+  font-family: var(--font-en);
+  font-size: 1.8rem; font-weight: 700;
+  margin-bottom: 8px;
+}
+.footer-logo span { color: var(--green); }
+.footer p { color: var(--gray); font-size: .8rem; }
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 768px) {
+  .sp-only { display: inline; }
+
+  .nav {
+    position: fixed; inset: 0;
+    background: rgba(10, 15, 10, .97);
+    flex-direction: column; justify-content: center;
+    gap: 40px;
+    font-size: 1.3rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s;
+  }
+  .nav.open { opacity: 1; pointer-events: auto; }
+  .nav a { font-size: 1.2rem; }
+
+  .hamburger {
+    display: flex; flex-direction: column; gap: 6px;
+    background: none; border: none; cursor: pointer;
+    z-index: 101; padding: 6px;
+  }
+  .hamburger span {
+    width: 28px; height: 2px; background: var(--white);
+    transition: transform .3s, opacity .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .section { padding: 80px 0; }
+  .cards { grid-template-columns: 1fr; }
+  .strength-grid { grid-template-columns: 1fr; }
+  .contact-btns { flex-direction: column; align-items: center; }
+}
+
+/* 動きを控えたい環境への配慮 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01s !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ローディング -->
+<div class="loader" id="loader">
+  <div class="loader-logo">MAB</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ヘッダー -->
+<header class="header" id="header">
+  <a href="#top" class="header-logo">MAB<span>.</span></a>
+  <nav class="nav" id="nav">
+    <a href="#vision">VISION</a>
+    <a href="#service">SERVICE</a>
+    <a href="#strength">STRENGTH</a>
+    <a href="#area">AREA</a>
+    <a href="#contact" class="nav-cta">CONTACT</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>MAB AGRICULTURE&nbsp;—&nbsp;MAB AGRICULTURE&nbsp;—&nbsp;MAB AGRICULTURE&nbsp;—&nbsp;</span>
+        <span>MAB AGRICULTURE&nbsp;—&nbsp;MAB AGRICULTURE&nbsp;—&nbsp;MAB AGRICULTURE&nbsp;—&nbsp;</span>
+      </div>
+    </div>
+    <div class="hero-inner">
+      <p class="hero-sub js-chars">株式会社MAB — AGRICULTURE COMPANY</p>
+      <h1 class="hero-copy">
+        <span class="line js-chars">日本一の</span>
+        <span class="line js-chars accent">農家になる</span>
+      </h1>
+      <p class="hero-lead">放棄地再生から収穫まで、<br class="sp-only">全力で挑む農業カンパニー。</p>
+      <a href="#contact" class="btn hero-btn">JOIN US<i></i></a>
+    </div>
+    <div class="scroll-sign"><span></span>SCROLL</div>
+  </section>
+
+  <!-- VISION -->
+  <section class="section vision" id="vision">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">VISION</span><span class="ja">私たちの想い</span></h2>
+      <p class="vision-copy reveal">耕せない土地なんて、ない。</p>
+      <p class="vision-text reveal">
+        株式会社MABは、耕作放棄地の再生から生産・収穫まで一気通貫で挑む農業カンパニーです。<br>
+        「日本一の農家になる」— その言葉を掲げ、熱量MAXのチームで農業の未来を切り拓きます。<br>
+        未経験でも本気なら育つ。それが、MABの現場です。
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section class="section service" id="service">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">SERVICE</span><span class="ja">事業内容</span></h2>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-num">01</div>
+          <h3>農作物の生産・販売</h3>
+          <p>土づくりから収穫まで、品質にこだわった野菜を育て、みなさまの食卓へ届けます。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">02</div>
+          <h3>耕作放棄地の再生</h3>
+          <p>使われなくなった農地をよみがえらせ、地域の景観と生産力を取り戻します。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">03</div>
+          <h3>農作業の受託</h3>
+          <p>人手不足でお困りの農家さま・自治体さまに代わり、農作業をまるごと請け負います。</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-num">04</div>
+          <h3>農業の発信・採用</h3>
+          <p>Instagram・TikTok・YouTubeで農業のリアルとかっこよさを発信。仲間を増やします。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTH -->
+  <section class="section strength" id="strength">
+    <div class="strength-marquee" aria-hidden="true">
+      <div class="marquee-track slow">
+        <span>STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;</span>
+        <span>STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;STRENGTH&nbsp;/&nbsp;</span>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">STRENGTH</span><span class="ja">MABの強み</span></h2>
+      <div class="strength-grid">
+        <div class="strength-item reveal">
+          <div class="strength-value"><span class="count" data-count="100">0</span><small>%</small></div>
+          <h3>熱量MAXのチーム</h3>
+          <p>全員が本気。日本一を目指す仲間だけが集まった、エネルギーあふれる現場です。</p>
+        </div>
+        <div class="strength-item reveal">
+          <div class="strength-value"><span class="count" data-count="0">0</span><small>から</small></div>
+          <h3>未経験から育つ環境</h3>
+          <p>経験ゼロでも大丈夫。挑戦する人を全力でサポートし、プロの農家に育てます。</p>
+        </div>
+        <div class="strength-item reveal">
+          <div class="strength-value"><span class="count" data-count="365">0</span><small>日</small></div>
+          <h3>圧倒的スピードと行動力</h3>
+          <p>思い立ったら即行動。放棄地の再生も新しい挑戦も、止まらずに走り続けます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section area" id="area">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">AREA</span><span class="ja">対応エリア</span></h2>
+      <p class="area-copy reveal">
+        <!-- ▼▼ 対応エリアが決まったらここを書き換えてください ▼▼ -->
+        関東近郊を中心に対応。<br>その他のエリアもお気軽にご相談ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">CONTACT</span><span class="ja">お問い合わせ</span></h2>
+      <p class="contact-copy reveal">一緒に「日本一」を目指す仲間も、<br class="sp-only">お仕事のご相談も。<br>まずは気軽にご連絡ください。</p>
+      <div class="contact-btns reveal">
+        <!-- ▼▼ メールアドレスが決まったら href を書き換えてください ▼▼ -->
+        <a href="mailto:info@example.com" class="btn">お問い合わせはこちら<i></i></a>
+        <a href="https://k-mabgroup.com/recruit" target="_blank" rel="noopener" class="btn btn-outline">採用情報を見る<i></i></a>
+      </div>
+      <ul class="sns reveal">
+        <li><a href="https://www.instagram.com/mab_agri_saiyou" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@mab_agri_saiyou" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://www.youtube.com/@mab_agri_saiyou" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">MAB<span>.</span></div>
+  <p>&copy; 2026 株式会社MAB All Rights Reserved.</p>
+</footer>
+
+<script>
+// ============================================
+// 株式会社MAB - ホームページ用スクリプト
+// ============================================
+
+// ---------- ローディング ----------
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => loader.classList.add("done"), 900);
+});
+// 保険：loadイベントが来ない環境でも2秒後に必ず開く
+setTimeout(() => document.getElementById("loader").classList.add("done"), 2000);
+
+// ---------- ヒーローコピー：1文字ずつ分割 ----------
+document.querySelectorAll(".js-chars").forEach((el) => {
+  const text = el.textContent;
+  el.textContent = "";
+  [...text].forEach((ch, i) => {
+    const span = document.createElement("span");
+    span.className = "char";
+    span.style.setProperty("--i", i);
+    span.textContent = ch === " " ? " " : ch;
+    el.appendChild(span);
+  });
+});
+
+// ---------- ヘッダー：スクロールで背景付与 ----------
+const header = document.getElementById("header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 60);
+}, { passive: true });
+
+// ---------- ハンバーガーメニュー ----------
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav");
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  nav.classList.toggle("open");
+});
+nav.querySelectorAll("a").forEach((a) =>
+  a.addEventListener("click", () => {
+    hamburger.classList.remove("open");
+    nav.classList.remove("open");
+  })
+);
+
+// ---------- スクロールで出現（reveal） ----------
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+// ---------- 数字カウントアップ ----------
+const countObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        el.textContent = Math.round(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      countObserver.unobserve(el);
+    });
+  },
+  { threshold: 0.6 }
+);
+document.querySelectorAll(".count").forEach((el) => countObserver.observe(el));
+
+// ---------- サービスカード：マウス追従ライト ----------
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  });
+});
+
+// ---------- ヒーロー背景：パーティクル（種・光をイメージ） ----------
+(() => {
+  const canvas = document.getElementById("particles");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+  let w, h;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  const resize = () => {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  };
+  resize();
+  window.addEventListener("resize", resize);
+
+  const COUNT = Math.min(70, Math.floor(w / 18));
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2.2 + 0.6,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: -(Math.random() * 0.5 + 0.15), // ゆっくり上昇
+      alpha: Math.random() * 0.5 + 0.2,
+    });
+  }
+
+  const draw = () => {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+      if (p.x < -10) p.x = w + 10;
+      if (p.x > w + 10) p.x = -10;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(74, 222, 52, ${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  };
+  draw();
+})();
+</script>
+</body>
+</html>
