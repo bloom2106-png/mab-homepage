@@ -453,6 +453,27 @@ ul { list-style: none; }
   letter-spacing: .04em;
 }
 
+/* ---------- COMPANY ---------- */
+.company { background: var(--bg2); }
+.company-table {
+  max-width: 720px;
+}
+.company-table > div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  padding: 20px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.company-table > div:first-child { border-top: 1px solid rgba(255, 255, 255, .1); }
+.company-table dt {
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.company-table dd { color: var(--white); line-height: 1.9; }
+.company-table dd a { color: var(--green); text-decoration: underline; text-underline-offset: 4px; }
+
 /* ---------- CONTACT ---------- */
 .contact {
   background:
@@ -538,6 +559,7 @@ ul { list-style: none; }
     grid-template-rows: auto auto;
   }
   .philosophy-list p { grid-column: 2; }
+  .company-table > div { grid-template-columns: 1fr; gap: 4px; }
 }
 
 /* 動きを控えたい環境への配慮 */
@@ -567,6 +589,7 @@ ul { list-style: none; }
     <a href="#promise">PROMISE</a>
     <a href="#strength">STRENGTH</a>
     <a href="#area">AREA</a>
+    <a href="#company">COMPANY</a>
     <a href="#contact" class="nav-cta">CONTACT</a>
   </nav>
   <button class="hamburger" id="hamburger" aria-label="メニュー">
@@ -748,6 +771,22 @@ ul { list-style: none; }
         <strong>それは、夢ではありません。使命です。</strong>
       </p>
       <p class="message-sign reveal">鹿児島県大崎町から、仲間とともに。— 株式会社MAB</p>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section class="section company" id="company">
+    <div class="container">
+      <h2 class="sec-title reveal"><span class="en">COMPANY</span><span class="ja">会社概要</span></h2>
+      <dl class="company-table reveal">
+        <div><dt>会社名</dt><dd>株式会社MAB</dd></div>
+        <div><dt>代表者</dt><dd>有田 祐介</dd></div>
+        <div><dt>所在地</dt><dd>〒899-7305<br>鹿児島県曽於郡大崎町假宿3459番地</dd></div>
+        <div><dt>TEL</dt><dd><a href="tel:0994760511">099-476-0511</a></dd></div>
+        <div><dt>FAX</dt><dd>099-476-5406</dd></div>
+        <div><dt>事業内容</dt><dd>農作物の生産・管理・販売・物流<br>生産から消費者への発送まで、バリューチェーンを一貫して自社で担っています。</dd></div>
+        <div><dt>グループサイト</dt><dd><a href="https://www.k-mabgroup.com/" target="_blank" rel="noopener">MAB GROUP 公式サイト</a></dd></div>
+      </dl>
     </div>
   </section>
 
