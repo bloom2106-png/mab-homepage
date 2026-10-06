@@ -582,6 +582,8 @@ ul { list-style: none; }
     transition-duration: .01s !important;
   }
 }
+/* Photo planning preview */
+.photo-plan{background:#101710;scroll-margin-top:90px}.photo-intro{max-width:760px;color:var(--gray);margin-bottom:24px}.sample-tag{display:inline-block;background:#dfff70;color:#14220b;padding:5px 12px;font-size:12px;font-weight:700;border-radius:4px;margin-bottom:16px}.photo-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}.photo-tabs button{font:inherit;color:var(--white);background:transparent;border:1px solid #51614d;padding:12px 22px;border-radius:999px;cursor:pointer}.photo-tabs button[aria-selected="true"]{background:var(--green);color:var(--bg);border-color:var(--green)}.photo-tabs button:focus-visible{outline:3px solid white;outline-offset:4px}.photo-panel[hidden]{display:none}.photo-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:24px}.photo-frame{margin:0;overflow:hidden;border:1px solid #344331;background:#162013;border-radius:12px}.photo-frame img{width:100%;height:340px;object-fit:cover;display:block;transition:transform .5s}.photo-frame:hover img{transform:scale(1.025)}.photo-frame figcaption{padding:20px}.photo-frame h3{font-size:20px;margin-bottom:8px}.photo-frame p{color:#bac5b6;font-size:14px}.photo-frame .photo-slot{font-family:var(--font-en);color:var(--green);font-size:13px;letter-spacing:.1em}.photo-request{margin-top:22px;border-left:3px solid var(--green);padding:16px 20px;background:#1b2617;color:#dce6d5}.photo-credit{font-size:12px;color:var(--gray);margin-top:16px}.photo-credit a{text-decoration:underline}.card .service-photo{width:calc(100% + 64px);max-width:none;height:180px;object-fit:cover;display:block;margin:-32px -32px 22px}.card .photo-caption{font-size:11px;color:var(--green);margin-bottom:10px}.message-preview{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}.portrait-placeholder{aspect-ratio:4/5;background:radial-gradient(ellipse at top,#354a28,#101810);border:1px dashed #768e69;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px;gap:16px}.portrait-placeholder svg{width:120px;color:#829775}.portrait-placeholder strong{font-size:24px}.portrait-placeholder p{font-size:14px;color:#bac5b6}.message-preview .message-copy{text-align:left;font-size:clamp(1.1rem,2vw,1.8rem)}.message-preview .message-sign{text-align:left}.hero-photo-note{position:absolute;bottom:65px;right:5vw;z-index:3;font-size:12px;color:#e4f1da;background:rgba(10,15,10,.8);padding:9px 14px;border:1px solid #537246;border-radius:6px}.nav{gap:20px}@media(max-width:768px){.photo-grid,.message-preview{grid-template-columns:1fr}.photo-frame img{height:240px}.photo-tabs{gap:8px}.photo-tabs button{padding:10px 14px;font-size:13px}.portrait-placeholder{aspect-ratio:4/3}.hero-photo-note{bottom:70px;font-size:10px;max-width:230px}.message-preview{gap:24px}.card .service-photo{width:100%;margin:0 0 20px;border-radius:6px}}
 </style>
 </head>
 <body>
@@ -597,7 +599,7 @@ ul { list-style: none; }
   <a href="#top" class="header-logo">MAB<span>.</span></a>
   <nav class="nav" id="nav">
     <a href="#vision">VISION</a>
-    <a href="#service">SERVICE</a>
+    <a href="#service">SERVICE</a><a href="#photo-plan">PHOTO</a>
     <a href="#promise">PROMISE</a>
     <a href="#strength">STRENGTH</a>
     <a href="#area">AREA</a>
@@ -633,9 +635,26 @@ ul { list-style: none; }
       <p class="hero-lead">農業の力で、世界を変える。<br>放棄地再生から収穫まで、全力で挑む農業カンパニー。</p>
       <a href="#contact" class="btn hero-btn">JOIN US<i></i></a>
     </div>
-    <div class="scroll-sign"><span></span>SCROLL</div>
+    <a class="hero-photo-note" href="#photo-plan">背景：畑の動画 / 写真の配置案を見る →</a><div class="scroll-sign"><span></span>SCROLL</div>
   </section>
 
+<section class="section photo-plan" id="photo-plan">
+<div class="container">
+<span class="sample-tag">写真配置の確認用 / 仮素材</span>
+<h2 class="sec-title"><span class="en">PHOTO DIRECTION</span><span class="ja">写真が入ると、MABはこう伝わる。</span></h2>
+<p class="photo-intro">タブを切り替えて、写真の使い方をご覧ください。「この枠にはこの写真を使いたい」と、番号でお知らせいただけます。掲載中の写真はイメージ用の仮素材で、MABの農場・商品・スタッフを撮影したものではありません。</p>
+<div class="photo-tabs" role="tablist" aria-label="写真のテーマ">
+<button type="button" role="tab" id="photo-tab-1" aria-controls="photo-panel-1" aria-selected="true">畑・風景</button>
+<button type="button" role="tab" id="photo-tab-2" aria-controls="photo-panel-2" aria-selected="false" tabindex="-1">作業・設備</button>
+<button type="button" role="tab" id="photo-tab-3" aria-controls="photo-panel-3" aria-selected="false" tabindex="-1">野菜・商品</button>
+<button type="button" role="tab" id="photo-tab-4" aria-controls="photo-panel-4" aria-selected="false" tabindex="-1">社長・チーム</button>
+</div><div class="photo-panel" role="tabpanel" id="photo-panel-1" aria-labelledby="photo-tab-1" tabindex="0"><div class="photo-grid"><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="畑を大きく見せる の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 01 / 仮写真</span><h3>畑を大きく見せる</h3><p>トップや企業理念に。MABの畑の広さ、空、緑が伝わる横長の写真を。</p></figcaption></figure><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="農場の雰囲気を見せる の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 02 / 仮写真</span><h3>農場の雰囲気を見せる</h3><p>対応エリアに。大崎町の農場や周辺風景を入れると、拠点が伝わります。</p></figcaption></figure></div></div><div class="photo-panel" role="tabpanel" id="photo-panel-2" aria-labelledby="photo-tab-2" tabindex="0" hidden><div class="photo-grid"><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="現場で働く姿を見せる の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 03 / 仮写真</span><h3>現場で働く姿を見せる</h3><p>事業紹介に。収穫、植え付け、作業中の手元など、仕事がわかる写真を。</p></figcaption></figure><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="設備と生産体制を見せる の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 04 / 仮写真</span><h3>設備と生産体制を見せる</h3><p>強みの紹介に。農機、選果、梱包、出荷など、実際の設備の写真を。</p></figcaption></figure></div></div><div class="photo-panel" role="tabpanel" id="photo-panel-3" aria-labelledby="photo-tab-3" tabindex="0" hidden><div class="photo-grid"><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="育てた野菜を主役にする の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 05 / 仮写真</span><h3>育てた野菜を主役にする</h3><p>生産・販売の紹介に。MABで扱う野菜のアップや収穫直後の写真を。</p></figcaption></figure><figure class="photo-frame"><img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="商品と出荷の姿を見せる の配置イメージ（仮素材）" loading="lazy" width="1200" height="800"><figcaption><span class="photo-slot">PHOTO 06 / 仮写真</span><h3>商品と出荷の姿を見せる</h3><p>お客様への約束に。箱詰めした野菜や出荷の写真があると品質が伝わります。</p></figcaption></figure></div></div><div class="photo-panel" role="tabpanel" id="photo-panel-4" aria-labelledby="photo-tab-4" tabindex="0" hidden><div class="photo-grid">
+<figure class="photo-frame"><div class="portrait-placeholder"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="50" cy="30" r="18"/><path d="M16 91v-8a34 34 0 0 1 68 0v8"/></svg><strong>社長のお写真</strong><p>畑で撮った一枚でも、<br>自然な笑顔のポートレートでも。</p></div><figcaption><span class="photo-slot">PHOTO 07 / 写真差し替え枠</span><h3>社長の想いに、顔が見える。</h3><p>社長メッセージの横に。縦長の写真を想定しています。</p></figcaption></figure>
+<figure class="photo-frame"><div class="portrait-placeholder"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="50" cy="28" r="12"/><circle cx="20" cy="36" r="9"/><circle cx="80" cy="36" r="9"/><path d="M29 85V70a21 21 0 0 1 42 0v15M4 80V66a16 16 0 0 1 24-14M96 80V66a16 16 0 0 0-24-14"/></svg><strong>チームのお写真</strong><p>集合写真、収穫中の笑顔、<br>日々の何気ない一場面を。</p></div><figcaption><span class="photo-slot">PHOTO 08 / 写真差し替え枠</span><h3>一緒に働く仲間が見える。</h3><p>採用やチーム紹介に。スタッフの集合写真・作業風景を想定しています。</p></figcaption></figure>
+</div></div>
+<p class="photo-request">例えば：「PHOTO 01にはドローンで撮った畑」「PHOTO 05には収穫した野菜」「PHOTO 07には社長の写真」。写真の番号と使いたい素材をお知らせください。</p>
+<p class="photo-credit">仮写真：<a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>。内容・作物・設備はイメージです。人物は実際のお写真をいただくための配置枠です。</p>
+</div></section>
   <!-- VISION -->
   <section class="section vision" id="vision">
     <div class="container">
@@ -659,22 +678,22 @@ ul { list-style: none; }
       <h2 class="sec-title reveal"><span class="en">SERVICE</span><span class="ja">事業内容</span></h2>
       <div class="cards">
         <article class="card reveal">
-          <div class="card-num">01</div>
+          <img class="service-photo" src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">01</div>
           <h3>農作物の生産・販売</h3>
           <p>土づくりから収穫まで、品質にこだわった野菜を育て、みなさまの食卓へ届けます。</p>
         </article>
         <article class="card reveal">
-          <div class="card-num">02</div>
+          <img class="service-photo" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">02</div>
           <h3>耕作放棄地の再生</h3>
           <p>使われなくなった農地をよみがえらせ、地域の景観と生産力を取り戻します。</p>
         </article>
         <article class="card reveal">
-          <div class="card-num">03</div>
+          <img class="service-photo" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">03</div>
           <h3>農作業の受託</h3>
           <p>人手不足でお困りの農家さま・自治体さまに代わり、農作業をまるごと請け負います。</p>
         </article>
         <article class="card reveal">
-          <div class="card-num">04</div>
+          <img class="service-photo" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">04</div>
           <h3>農業の発信・採用</h3>
           <p>Instagram・TikTok・YouTubeで農業のリアルとかっこよさを発信。仲間を増やします。</p>
         </article>
@@ -775,7 +794,7 @@ ul { list-style: none; }
   <section class="section message" id="message">
     <div class="container">
       <h2 class="sec-title reveal"><span class="en">MESSAGE</span><span class="ja">農業に未来はある</span></h2>
-      <p class="message-copy reveal">
+      <div class="message-preview"><div class="portrait-placeholder"><span class="sample-tag">PHOTO 07 / 写真差し替え枠</span><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="50" cy="30" r="18"/><path d="M16 91v-8a34 34 0 0 1 68 0v8"/></svg><strong>ここに社長のお写真</strong><p>畑を背景にしたポートレートなど。<br>実際のお写真に差し替えます。</p></div><div><p class="message-copy reveal">
         農業には、未来がある。<br>
         人を守り、地域を守り、日本を守る力がある。<br>
         全ては、全てを守るために。<br>
@@ -1041,6 +1060,30 @@ document.querySelectorAll(".card").forEach((card) => {
     requestAnimationFrame(draw);
   };
   draw();
+})();
+</script>
+<script>
+(() => {
+ const tabs = Array.from(document.querySelectorAll('.photo-tabs [role="tab"]'));
+ function select(index, focus) {
+  tabs.forEach((tab, i) => {
+   tab.setAttribute('aria-selected', String(i === index));
+   tab.tabIndex = i === index ? 0 : -1;
+   document.getElementById(tab.getAttribute('aria-controls')).hidden = i !== index;
+  });
+  if (focus) tabs[index].focus();
+ }
+ tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => select(i, false));
+  tab.addEventListener('keydown', event => {
+   let next;
+   if(event.key === 'ArrowRight') next = (i + 1) % tabs.length;
+   if(event.key === 'ArrowLeft') next = (i + tabs.length - 1) % tabs.length;
+   if(event.key === 'Home') next = 0;
+   if(event.key === 'End') next = tabs.length - 1;
+   if(next !== undefined) { event.preventDefault(); select(next, true); }
+  });
+ });
 })();
 </script>
 </body>
