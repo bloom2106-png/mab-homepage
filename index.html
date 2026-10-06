@@ -584,6 +584,15 @@ ul { list-style: none; }
 }
 /* Photo planning preview */
 .photo-plan{background:#101710;scroll-margin-top:90px}.photo-intro{max-width:760px;color:var(--gray);margin-bottom:24px}.sample-tag{display:inline-block;background:#dfff70;color:#14220b;padding:5px 12px;font-size:12px;font-weight:700;border-radius:4px;margin-bottom:16px}.photo-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}.photo-tabs button{font:inherit;color:var(--white);background:transparent;border:1px solid #51614d;padding:12px 22px;border-radius:999px;cursor:pointer}.photo-tabs button[aria-selected="true"]{background:var(--green);color:var(--bg);border-color:var(--green)}.photo-tabs button:focus-visible{outline:3px solid white;outline-offset:4px}.photo-panel[hidden]{display:none}.photo-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:24px}.photo-frame{margin:0;overflow:hidden;border:1px solid #344331;background:#162013;border-radius:12px}.photo-frame img{width:100%;height:340px;object-fit:cover;display:block;transition:transform .5s}.photo-frame:hover img{transform:scale(1.025)}.photo-frame figcaption{padding:20px}.photo-frame h3{font-size:20px;margin-bottom:8px}.photo-frame p{color:#bac5b6;font-size:14px}.photo-frame .photo-slot{font-family:var(--font-en);color:var(--green);font-size:13px;letter-spacing:.1em}.photo-request{margin-top:22px;border-left:3px solid var(--green);padding:16px 20px;background:#1b2617;color:#dce6d5}.photo-credit{font-size:12px;color:var(--gray);margin-top:16px}.photo-credit a{text-decoration:underline}.card .service-photo{width:calc(100% + 64px);max-width:none;height:180px;object-fit:cover;display:block;margin:-32px -32px 22px}.card .photo-caption{font-size:11px;color:var(--green);margin-bottom:10px}.message-preview{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}.portrait-placeholder{aspect-ratio:4/5;background:radial-gradient(ellipse at top,#354a28,#101810);border:1px dashed #768e69;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px;gap:16px}.portrait-placeholder svg{width:120px;color:#829775}.portrait-placeholder strong{font-size:24px}.portrait-placeholder p{font-size:14px;color:#bac5b6}.message-preview .message-copy{text-align:left;font-size:clamp(1.1rem,2vw,1.8rem)}.message-preview .message-sign{text-align:left}.hero-photo-note{position:absolute;bottom:65px;right:5vw;z-index:3;font-size:12px;color:#e4f1da;background:rgba(10,15,10,.8);padding:9px 14px;border:1px solid #537246;border-radius:6px}.nav{gap:20px}@media(max-width:768px){.photo-grid,.message-preview{grid-template-columns:1fr}.photo-frame img{height:240px}.photo-tabs{gap:8px}.photo-tabs button{padding:10px 14px;font-size:13px}.portrait-placeholder{aspect-ratio:4/3}.hero-photo-note{bottom:70px;font-size:10px;max-width:230px}.message-preview{gap:24px}.card .service-photo{width:100%;margin:0 0 20px;border-radius:6px}}
+.vegetable-intro { display:flex; align-items:center; justify-content:space-between; gap:28px; padding:28px 32px; margin:0 0 36px; border:1px solid rgba(74,222,52,.25); border-radius:16px; background:linear-gradient(120deg,#172813,#101710); }
+.vegetable-intro p { font-size:clamp(1.1rem,2.5vw,1.6rem); font-weight:700; }
+.vegetable-intro small { display:block; margin-top:6px; font-size:13px; font-weight:400; color:var(--gray); }
+.vegetable-icons { display:flex; gap:28px; flex-shrink:0; }
+.vegetable-icon { display:flex; flex-direction:column; align-items:center; gap:6px; font-size:13px; font-weight:700; }
+.vegetable-icon svg { width:88px; height:88px; transition:transform .3s; filter:drop-shadow(0 4px 12px rgba(74,222,52,.14)); }
+.vegetable-icon:hover svg { transform:translateY(-5px) rotate(-4deg); }
+@media(max-width:600px) { .vegetable-intro { flex-direction:column; align-items:flex-start; padding:24px; gap:20px; } .vegetable-icons { align-self:center; gap:40px; } .vegetable-icon svg { width:80px; height:80px; } }
+@media(prefers-reduced-motion:reduce) { .vegetable-icon svg { transition:none; } .vegetable-icon:hover svg { transform:none; } }
 </style>
 </head>
 <body>
@@ -676,6 +685,36 @@ ul { list-style: none; }
   <section class="section service" id="service">
     <div class="container">
       <h2 class="sec-title reveal"><span class="en">SERVICE</span><span class="ja">事業内容</span></h2>
+      <div class="vegetable-intro">
+        <p>畑から、食卓へ。<small>野菜の姿が伝わる、アイコンのデザイン案</small></p>
+        <div class="vegetable-icons">
+          <span class="vegetable-icon">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <g stroke="#173d16" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M51 35C31 33 20 23 25 8C43 10 48 22 51 35Z" fill="#72db4c"/>
+                <path d="M51 35C40 21 44 7 53 3C64 15 61 25 51 35Z" fill="#4ade34"/>
+                <path d="M52 35C55 16 68 9 79 14C76 30 66 34 52 35Z" fill="#91e45f"/>
+                <path d="M34 37C38 29 60 28 66 36C74 48 64 69 49 85L43 94L44 83C33 70 27 49 34 37Z" fill="#f3f5e9"/>
+                <path d="M36 43L45 45M34 53L42 55M38 64L44 65M62 48L56 50M55 68L51 69" stroke="#b4c7a5"/>
+                <path d="M33 16L50 34M54 14L52 32M70 20L56 32" stroke="#28722a"/>
+              </g>
+            </svg>
+            <span>大根</span>
+          </span>
+          <span class="vegetable-icon">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <g stroke="#235c24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M51 15C28 9 12 28 14 47C3 61 15 85 36 88C47 96 68 88 77 81C97 73 99 47 83 34C79 18 65 10 51 15Z" fill="#64c84f"/>
+                <path d="M48 24C28 24 23 40 28 55C21 63 27 77 40 82C57 89 78 74 78 56C86 38 67 19 48 24Z" fill="#b6e979"/>
+                <path d="M50 34C37 31 31 43 38 53C29 66 42 78 53 76C72 74 73 55 63 51C72 42 62 31 50 34Z" fill="#dbf2a5"/>
+                <path d="M49 43C42 40 41 50 48 54C42 65 58 69 61 59C64 51 58 43 49 43Z" fill="#93d86b"/>
+                <path d="M17 48C22 55 23 70 35 82M81 36C75 42 82 66 73 78M29 29L38 39M50 17L50 28M17 70L27 68M85 65L77 61M36 87L43 78" fill="none"/>
+              </g>
+            </svg>
+            <span>キャベツ</span>
+          </span>
+        </div>
+      </div>
       <div class="cards">
         <article class="card reveal">
           <img class="service-photo" src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">01</div>
