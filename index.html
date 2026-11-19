@@ -245,6 +245,8 @@ ul { list-style: none; }
   animation: fadeUp .8s ease forwards;
   animation-delay: 1.5s;
 }
+.hero-btn .lit-icon { width: 22px; height: 22px; background: currentColor; }
+.hero-btn .lit-icon::after { display: none; }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -760,7 +762,7 @@ ul { list-style: none; }
         <span class="line js-chars accent">農家になる</span>
       </h1>
       <p class="hero-lead">農業の力で、世界を変える。<br>放棄地再生から収穫まで、全力で挑む農業カンパニー。</p>
-      <a href="https://lit.link/m_ab" target="_blank" rel="noopener" class="btn hero-btn">JOIN US<i></i></a>
+      <a href="https://lit.link/m_ab" target="_blank" rel="noopener" class="btn hero-btn">lit.link<i class="lit-icon" aria-hidden="true"></i></a>
     </div>
     <a class="hero-photo-note" href="#photo-plan">背景：畑の動画 / 写真の配置案を見る →</a><div class="scroll-sign"><span></span>SCROLL</div>
   </section>
