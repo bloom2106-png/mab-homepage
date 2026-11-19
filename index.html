@@ -665,6 +665,22 @@ ul { list-style: none; }
   .mab-tiktok{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;justify-items:center}
   .mab-tiktok .tiktok-embed{margin:0!important;max-width:340px!important;min-width:0!important;width:100%}
   @media (max-width:1000px){.mab-tiktok{grid-template-columns:1fr}}
+  /* SYSTEM：カードの後ろからひょっこり */
+  #system .cards{row-gap:100px;margin-top:84px}
+  .mab-peek-wrap{position:relative}
+  .mab-peek-wrap>.card{height:100%;position:relative;z-index:1}
+  .mab-peek{position:absolute;bottom:100%;width:112px;height:84px;overflow:hidden;z-index:0;pointer-events:none}
+  .mab-peek-r{right:44px}
+  .mab-peek-l{left:44px}
+  .mab-peek svg{display:block;width:100%;height:100%;transform:translateY(105%);animation:mabPeek 6.4s cubic-bezier(.34,1.56,.64,1) infinite;animation-delay:var(--d,0s)}
+  .mab-peek-body{transform-box:fill-box;transform-origin:50% 100%;animation:mabTilt 6.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+  .mab-peek-eyes{transform-box:fill-box;transform-origin:center;animation:mabBlink 6.4s infinite;animation-delay:var(--d,0s)}
+  .mab-peek-wrap:hover .mab-peek svg{animation:none;transform:translateY(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .mab-peek-wrap:hover .mab-peek-body{animation:none}
+  @keyframes mabPeek{0%,8%{transform:translateY(105%)}16%,46%{transform:translateY(0)}54%,100%{transform:translateY(105%)}}
+  @keyframes mabTilt{0%,20%{transform:rotate(0)}26%{transform:rotate(-8deg)}32%{transform:rotate(6deg)}38%,100%{transform:rotate(0)}}
+  @keyframes mabBlink{0%,28%,31%,100%{transform:scaleY(1)}29.5%{transform:scaleY(.1)}}
+  @media (prefers-reduced-motion:reduce){.mab-peek svg,.mab-peek-body,.mab-peek-eyes{animation:none}.mab-peek svg{transform:translateY(0)}}
   #social .cards{grid-template-columns:repeat(3,1fr)}
   @media (max-width:860px){
     #social .cards{grid-template-columns:1fr}
@@ -956,26 +972,26 @@ ul { list-style: none; }
     <h2 class="sec-title reveal"><span class="en">SYSTEM</span><span class="ja">生産体制と安全への取り組み</span></h2>
     <p class="mab-lead reveal">作付けから出荷まで、部門ごとに計画を立てて効率よく。データと機械を活かしながら、何より人の安全を守る現場をつくっています。</p>
     <div class="cards">
-      <article class="card reveal">
+      <div class="mab-peek-wrap"><div class="mab-peek mab-peek-r" aria-hidden="true" style="--d:0.0s"><svg viewBox="0 0 80 60"><g class="mab-peek-body"><path d="M14 60 Q16 48 40 46 Q64 48 66 60Z" fill="#4ade34"/><circle cx="40" cy="36" r="15" fill="#f2c9a0"/><path d="M27 27 Q40 6 53 27Z" fill="#e8c66a"/><ellipse cx="40" cy="27" rx="26" ry="5" fill="#e8c66a"/><path d="M27 27 H53" stroke="#c9a14a" stroke-width="2"/><g class="mab-peek-eyes"><ellipse cx="34" cy="36" rx="2" ry="2.6" fill="#222"/><ellipse cx="46" cy="36" rx="2" ry="2.6" fill="#222"/></g><circle cx="30" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><circle cx="50" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><path d="M36 43 Q40 46.5 44 43" stroke="#7a4a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#f2c9a0" stroke="#d9a77c" stroke-width="1"><rect x="10" y="52" width="13" height="10" rx="5"/><rect x="57" y="52" width="13" height="10" rx="5"/></g></g></svg></div><article class="card reveal">
         <div class="card-num">01</div>
         <h3>部門ごとの一貫体制</h3>
         <p>作付け計画と機械作業を担う「生産管理課」、草取りから収穫・出荷までを担う「出荷管理課」、現場を支える「総務課」。役割を分けて、安定した生産を実現しています。</p>
-      </article>
-      <article class="card reveal">
+      </article></div>
+      <div class="mab-peek-wrap"><div class="mab-peek mab-peek-l" aria-hidden="true" style="--d:1.6s"><svg viewBox="0 0 80 60"><g class="mab-peek-body"><path d="M14 60 Q16 48 40 46 Q64 48 66 60Z" fill="#2f7d3a"/><circle cx="40" cy="36" r="15" fill="#f2c9a0"/><path d="M27 27 Q40 6 53 27Z" fill="#f0a04b"/><ellipse cx="40" cy="27" rx="26" ry="5" fill="#f0a04b"/><path d="M27 27 H53" stroke="#c9a14a" stroke-width="2"/><g class="mab-peek-eyes"><ellipse cx="34" cy="36" rx="2" ry="2.6" fill="#222"/><ellipse cx="46" cy="36" rx="2" ry="2.6" fill="#222"/></g><circle cx="30" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><circle cx="50" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><path d="M36 43 Q40 46.5 44 43" stroke="#7a4a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#f2c9a0" stroke="#d9a77c" stroke-width="1"><rect x="10" y="52" width="13" height="10" rx="5"/><rect x="57" y="52" width="13" height="10" rx="5"/></g></g></svg></div><article class="card reveal">
         <div class="card-num">02</div>
         <h3>データとスマート農業</h3>
         <p>土壌診断や過去の実績、気象データをもとに作業日を計画。生育状況はタブレットで記録・共有し、翌年の計画に活かしています。ドローンやGPSトラクターの活用も進めています。</p>
-      </article>
-      <article class="card reveal">
+      </article></div>
+      <div class="mab-peek-wrap"><div class="mab-peek mab-peek-r" aria-hidden="true" style="--d:3.2s"><svg viewBox="0 0 80 60"><g class="mab-peek-body"><path d="M14 60 Q16 48 40 46 Q64 48 66 60Z" fill="#f0a04b"/><circle cx="40" cy="36" r="15" fill="#f2c9a0"/><path d="M27 27 Q40 6 53 27Z" fill="#e8c66a"/><ellipse cx="40" cy="27" rx="26" ry="5" fill="#e8c66a"/><path d="M27 27 H53" stroke="#c9a14a" stroke-width="2"/><g class="mab-peek-eyes"><ellipse cx="34" cy="36" rx="2" ry="2.6" fill="#222"/><ellipse cx="46" cy="36" rx="2" ry="2.6" fill="#222"/></g><circle cx="30" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><circle cx="50" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><path d="M36 43 Q40 46.5 44 43" stroke="#7a4a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#f2c9a0" stroke="#d9a77c" stroke-width="1"><rect x="10" y="52" width="13" height="10" rx="5"/><rect x="57" y="52" width="13" height="10" rx="5"/></g></g></svg></div><article class="card reveal">
         <div class="card-num">03</div>
         <h3>機械と車両の安全管理</h3>
         <p>農業機械は教育を受けた者だけが使用し、作業前後の点検を徹底。定期点検と計画整備で、事故を未然に防ぎます。</p>
-      </article>
-      <article class="card reveal">
+      </article></div>
+      <div class="mab-peek-wrap"><div class="mab-peek mab-peek-l" aria-hidden="true" style="--d:4.800000000000001s"><svg viewBox="0 0 80 60"><g class="mab-peek-body"><path d="M14 60 Q16 48 40 46 Q64 48 66 60Z" fill="#4ade34"/><circle cx="40" cy="36" r="15" fill="#f2c9a0"/><path d="M27 27 Q40 6 53 27Z" fill="#9ad46a"/><ellipse cx="40" cy="27" rx="26" ry="5" fill="#9ad46a"/><path d="M27 27 H53" stroke="#c9a14a" stroke-width="2"/><g class="mab-peek-eyes"><ellipse cx="34" cy="36" rx="2" ry="2.6" fill="#222"/><ellipse cx="46" cy="36" rx="2" ry="2.6" fill="#222"/></g><circle cx="30" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><circle cx="50" cy="41" r="2.6" fill="#f4a3a3" opacity=".7"/><path d="M36 43 Q40 46.5 44 43" stroke="#7a4a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#f2c9a0" stroke="#d9a77c" stroke-width="1"><rect x="10" y="52" width="13" height="10" rx="5"/><rect x="57" y="52" width="13" height="10" rx="5"/></g></g></svg></div><article class="card reveal">
         <div class="card-num">04</div>
         <h3>災害に強い農業</h3>
         <p>自然災害時は人命を最優先に。事業継続計画（BCP）に基づき、生産・出荷体制を早期に回復し、野菜の安定供給と地域農業の復旧に努めます。</p>
-      </article>
+      </article></div>
     </div>
   </div>
 </section>
