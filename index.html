@@ -594,6 +594,90 @@ ul { list-style: none; }
 @media(max-width:600px) { .vegetable-intro { flex-direction:column; align-items:flex-start; padding:24px; gap:20px; } .vegetable-icons { align-self:center; gap:40px; } .vegetable-icon svg { width:80px; height:80px; } }
 @media(prefers-reduced-motion:reduce) { .vegetable-icon svg { transition:none; } .vegetable-icon:hover svg { transform:none; } }
 </style>
+<!-- MAB追加スタイル -->
+<style> は </head> の直前に貼り付けてください。
+  ・各セクションは、コメントに書いた場所に貼り付けてください。
+  ・既存の .section / .container / .sec-title / .cards / .card / .card-num / .reveal をそのまま使っています。
+-->
+
+<!-- ===== ⓪ メニュー：<nav class="nav" id="nav"> の中身を、次の内容に置き換え =====
+      （英語の下に小さく日本語、STORY・WORKを追加）
+
+      <a href="#vision">VISION<small class="nav-ja">企業理念</small></a>
+      <a href="#service">SERVICE<small class="nav-ja">事業内容</small></a>
+      <a href="#photo-plan">PHOTO<small class="nav-ja">写真</small></a>
+      <a href="#promise">PROMISE<small class="nav-ja">5つの約束</small></a>
+      <a href="#strength">STRENGTH<small class="nav-ja">強み</small></a>
+      <a href="#area">AREA<small class="nav-ja">対応エリア</small></a>
+      <a href="#story">STORY<small class="nav-ja">創業の原点</small></a>
+      <a href="#work">WORK<small class="nav-ja">働く環境</small></a>
+      <a href="#company">COMPANY<small class="nav-ja">会社概要</small></a>
+      <a href="#contact" class="nav-cta">CONTACT<small class="nav-ja">お問い合わせ</small></a>
+
+      ※元の <a> に他の属性が付いている場合は、それを残したまま <small class="nav-ja">…</small> だけ足してください。
+-->
+<!-- メニュー日本語用のスタイル（下の <style> にも含めています） -->
+
+<!-- ===== ① <style>：</head> の直前へ ===== -->
+<style>
+  .nav a{display:inline-flex;flex-direction:column;align-items:center;line-height:1.25}
+  .nav .nav-ja{display:block;margin-top:3px;font-family:"Noto Sans JP",sans-serif;font-size:10px;font-weight:400;letter-spacing:.06em;color:#9aa89a}
+  .nav a:hover .nav-ja{color:#4ade34}
+  .nav .nav-cta .nav-ja{color:inherit;opacity:.8}
+  .mab-alt{background:#101710}
+  .mab-alt .card{background:#0b110b}
+  .mab-lead{max-width:760px;color:#9aa89a;line-height:2;margin:0 0 48px}
+  .mab-brand{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start}
+  .mab-logo{aspect-ratio:1/1;border-radius:16px;background:#e9efe4;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .mab-logo img{width:80%;height:auto}
+  .mab-logo span{color:#4a6b4a;font-size:13px;text-align:center;line-height:1.8}
+  .mab-meaning{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+  .mab-meaning li{border-left:3px solid #4ade34;padding-left:18px}
+  .mab-meaning b{display:block;color:#f2f5f0;font-size:17px;margin-bottom:4px}
+  .mab-meaning p{margin:0;color:#9aa89a;line-height:1.9;font-size:15px}
+  .mab-trinity{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 40px}
+  .mab-trinity span{border:1px solid rgba(74,222,52,.5);color:#4ade34;border-radius:999px;padding:8px 22px;font-weight:700;letter-spacing:.08em}
+  .mab-values{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:28px}
+  .mab-values div{background:#0b110b;border:1px solid rgba(74,222,52,.15);border-radius:14px;padding:22px 18px}
+  .mab-values b{display:block;color:#4ade34;margin-bottom:8px;font-size:16px}
+  .mab-values p{margin:0;color:#9aa89a;font-size:14px;line-height:1.8}
+  .mab-timeline{list-style:none;margin:0;padding:0;border-left:2px solid rgba(74,222,52,.35)}
+  .mab-timeline li{position:relative;padding:0 0 36px 32px}
+  .mab-timeline li::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:#4ade34}
+  .mab-timeline .when{font-family:Oswald,sans-serif;color:#4ade34;font-size:15px;letter-spacing:.1em}
+  .mab-timeline b{display:block;font-size:19px;margin:4px 0 8px;color:#f2f5f0}
+  .mab-timeline p{margin:0;color:#9aa89a;line-height:1.9}
+  .mab-events{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .mab-events span{background:#0b110b;border:1px solid rgba(74,222,52,.2);border-radius:12px;padding:12px 18px;color:#f2f5f0;font-size:14px}
+  .mab-events small{color:#4ade34;margin-right:8px}
+  .mab-movies{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .mab-movies figure{margin:0}
+  .mab-yt{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid rgba(74,222,52,.15);background:#000}
+  .mab-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .mab-movies figcaption{margin-top:12px;color:#f2f5f0;font-size:15px;line-height:1.7}
+  .mab-movie-more{margin-top:40px;text-align:center}
+  .mab-movie-more a{display:inline-block;border:1px solid #4ade34;color:#4ade34;border-radius:999px;padding:14px 32px;text-decoration:none;font-weight:700}
+  .mab-movie-more a:hover{background:#4ade34;color:#0b110b}
+  @media (max-width:860px){.mab-movies{grid-template-columns:1fr}}
+  .mab-insta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .mab-insta .instagram-media{min-width:0!important;width:100%!important;margin:0!important;border-radius:14px!important}
+  @media (max-width:860px){.mab-insta{grid-template-columns:1fr;max-width:480px;margin:0 auto}}
+  .mab-tiktok{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;justify-items:center}
+  .mab-tiktok .tiktok-embed{margin:0!important;max-width:340px!important;min-width:0!important;width:100%}
+  @media (max-width:1000px){.mab-tiktok{grid-template-columns:1fr}}
+  #social .cards{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:860px){
+    #social .cards{grid-template-columns:1fr}
+    .mab-brand{grid-template-columns:1fr}
+    .mab-logo{max-width:280px}
+    .mab-values{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){.mab-values{grid-template-columns:1fr}}
+</style>
+<style>
+  .mab-farm-anim{max-width:960px;margin:0 auto 56px;padding:0 20px}
+  .mab-farm-anim svg{display:block;width:100%;height:auto;border-radius:16px;border:1px solid rgba(126,224,126,.18);background:rgba(255,255,255,.02)}
+</style>
 </head>
 <body>
 
@@ -607,13 +691,16 @@ ul { list-style: none; }
 <header class="header" id="header">
   <a href="#top" class="header-logo">MAB<span>.</span></a>
   <nav class="nav" id="nav">
-    <a href="#vision">VISION</a>
-    <a href="#service">SERVICE</a><a href="#photo-plan">PHOTO</a>
-    <a href="#promise">PROMISE</a>
-    <a href="#strength">STRENGTH</a>
-    <a href="#area">AREA</a>
-    <a href="#company">COMPANY</a>
-    <a href="#contact" class="nav-cta">CONTACT</a>
+    <a href="#vision">VISION<small class="nav-ja">企業理念</small></a>
+    <a href="#service">SERVICE<small class="nav-ja">事業内容</small></a>
+    <a href="#photo-plan">PHOTO<small class="nav-ja">写真</small></a>
+    <a href="#promise">PROMISE<small class="nav-ja">5つの約束</small></a>
+    <a href="#strength">STRENGTH<small class="nav-ja">強み</small></a>
+    <a href="#area">AREA<small class="nav-ja">対応エリア</small></a>
+    <a href="#story">STORY<small class="nav-ja">創業の原点</small></a>
+    <a href="#work">WORK<small class="nav-ja">働く環境</small></a>
+    <a href="#company">COMPANY<small class="nav-ja">会社概要</small></a>
+    <a href="#contact" class="nav-cta">CONTACT<small class="nav-ja">お問い合わせ</small></a>
   </nav>
   <button class="hamburger" id="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
@@ -681,6 +768,55 @@ ul { list-style: none; }
     </div>
   </section>
 
+<section class="section" id="brand">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">BRAND</span><span class="ja">ロゴに込めた想い</span></h2>
+    <div class="mab-brand">
+      <div class="mab-logo reveal">
+        <!-- ロゴ画像のファイル名に差し替えてください（例：images/mabgroup-logo.png） -->
+        <span>ここに<br>MAB GROUPのロゴ</span>
+      </div>
+      <div>
+        <p class="mab-lead reveal" style="margin-bottom:28px">MAB GROUPのロゴは、「人」「農業」「未来」「成長」をひとつにしたシンボルです。</p>
+        <ul class="mab-meaning">
+          <li class="reveal"><b>人を中心にした農業</b><p>中央の人の形は、「人の幸福を起点に農業を行う」という理念「幸福創農」の象徴。両手を広げた姿に、社員・取引先・地域・消費者、そして次の世代の幸福を創る想いを込めました。</p></li>
+          <li class="reveal"><b>農業の力と生命の循環</b><p>人の身体から伸びる葉は、大地から芽吹く作物。自然と共生する持続可能な農業、命を育て社会を支える農業を表しています。</p></li>
+          <li class="reveal"><b>成長と挑戦</b><p>上へ伸びていく形は、「日本一の農家になる」「農業の力で世界を変える」という意志。現状に満足せず、成長し続ける姿です。</p></li>
+          <li class="reveal"><b>調和・安心・信頼</b><p>基調のグリーンは、自然、安心・安全、調和、信頼の色。安全・安定・高品質な野菜を届け続ける姿勢を表しています。</p></li>
+          <li class="reveal"><b>全ては、全てを守るために</b><p>人を守る、地域を守る、日本の食を守る、自然を守る、未来を守る。そのすべてを農業で実現していく決意を込めています。</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mab-alt" id="mvv">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">MISSION</span><span class="ja">「日本一の農家」とは</span></h2>
+    <p class="mab-lead reveal">日本で一番野菜を作る企業として、品質・安全・供給力・環境を徹底的に追求します。私たちの「日本一」は、次の三つを一体で実現することです。</p>
+    <div class="mab-trinity reveal"><span>生産量</span><span>品質</span><span>持続可能性</span></div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-num">MISSION</div>
+        <h3>なぜ存在するのか</h3>
+        <p>日本の食卓に、安心・安全・新鮮な野菜を届けることで、健幸と持続可能な社会を支えます。品質・生産量・持続性を極限まで追求し、地域と未来をつなぐ架け橋になります。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">VISION</div>
+        <h3>めざす未来</h3>
+        <p>日本で最も信頼される野菜メーカーとして、年間生産量・品種ラインアップ・品質安定性のすべてで業界トップクラスへ。国内だけでなく、海外にも日本の野菜ブランドを広めます。</p>
+      </article>
+    </div>
+    <div class="mab-values">
+      <div class="reveal"><b>品質第一</b><p>品種選定・栽培管理・物流まで徹底した品質管理。</p></div>
+      <div class="reveal"><b>効率と創意工夫</b><p>データ活用・スマート農業・ロス削減で生産性と品質を両立。</p></div>
+      <div class="reveal"><b>安全と持続</b><p>農薬の適正使用、土壌・水資源の保全、働く環境の向上を最優先に。</p></div>
+      <div class="reveal"><b>地域連携</b><p>地域との協働・雇用創出・教育で、日本一を支える人材を育てる。</p></div>
+      <div class="reveal"><b>お客様志向</b><p>消費者のニーズを正確に捉え、食の安心と喜びを届ける。</p></div>
+    </div>
+  </div>
+</section>
+
   <!-- SERVICE -->
   <section class="section service" id="service">
     <div class="container">
@@ -715,6 +851,120 @@ ul { list-style: none; }
           </span>
         </div>
       </div>
+      <!-- 農作業アニメーション -->
+<div class="mab-farm-anim">
+<svg id="mabFarmSvg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mabFarmTitle">
+  <title id="mabFarmTitle">鍬で畑を耕す人と、大根を収穫する人のイラスト</title>
+  <defs>
+    <linearGradient id="mabSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c3a24" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2c5a34" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#mabSky)"/>
+
+  <!-- 太陽 -->
+  <g transform="translate(680,70)">
+    <g stroke="#f6c453" stroke-width="4" stroke-linecap="round" opacity=".75">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="30s" repeatCount="indefinite"/>
+      <line y1="-36" y2="-48"/><line y1="-36" y2="-48" transform="rotate(45)"/>
+      <line y1="-36" y2="-48" transform="rotate(90)"/><line y1="-36" y2="-48" transform="rotate(135)"/>
+      <line y1="-36" y2="-48" transform="rotate(180)"/><line y1="-36" y2="-48" transform="rotate(225)"/>
+      <line y1="-36" y2="-48" transform="rotate(270)"/><line y1="-36" y2="-48" transform="rotate(315)"/>
+    </g>
+    <circle r="26" fill="#f6c453"/>
+  </g>
+
+  <!-- 雲 -->
+  <g fill="#cfe8d0" opacity=".45">
+    <animateTransform attributeName="transform" type="translate" values="-120 0;900 0" dur="45s" repeatCount="indefinite"/>
+    <circle cx="0" cy="60" r="14"/><circle cx="18" cy="52" r="18"/><circle cx="38" cy="60" r="13"/><rect x="0" y="58" width="38" height="16" rx="8"/>
+  </g>
+  <g fill="#cfe8d0" opacity=".3">
+    <animateTransform attributeName="transform" type="translate" values="-120 0;900 0" dur="60s" begin="-30s" repeatCount="indefinite"/>
+    <circle cx="0" cy="110" r="10"/><circle cx="14" cy="104" r="13"/><circle cx="28" cy="110" r="9"/><rect x="0" y="108" width="28" height="11" rx="5"/>
+  </g>
+
+  <!-- 丘と畑 -->
+  <path d="M0 205 Q200 155 400 195 T800 185 V300 H0Z" fill="#24452b"/>
+  <path d="M0 224 Q400 206 800 224 V240 H0Z" fill="#2f5e35"/>
+
+  <!-- 大根（土の後ろ） -->
+  <g transform="translate(548,240)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 0;1 -15;1 -15;0 0" keyTimes="0;.3;.6;.75;1" dur="2.4s" repeatCount="indefinite"/>
+      <ellipse cx="0" cy="10" rx="7" ry="18" fill="#f4f1e6"/>
+      <path d="M0 -6 Q-8 -20 -6 -32 M0 -6 Q0 -22 1 -34 M0 -6 Q8 -20 8 -30" stroke="#5cc85c" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+
+  <!-- 土 -->
+  <rect y="240" width="800" height="60" fill="#4a3322"/>
+  <path d="M0 256 H800 M0 274 H800 M0 292 H800" stroke="#3a281a" stroke-width="3"/>
+
+  <!-- 芽 -->
+  <g stroke="#7ee07e" stroke-width="3" stroke-linecap="round" fill="none">
+    <g transform="translate(70,240)"><g><animateTransform attributeName="transform" type="rotate" values="-6;6;-6" dur="3s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+    <g transform="translate(120,240)"><g><animateTransform attributeName="transform" type="rotate" values="6;-6;6" dur="3.4s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+    <g transform="translate(380,240)"><g><animateTransform attributeName="transform" type="rotate" values="-6;6;-6" dur="2.8s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+    <g transform="translate(420,240)"><g><animateTransform attributeName="transform" type="rotate" values="6;-6;6" dur="3.2s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+    <g transform="translate(640,240)"><g><animateTransform attributeName="transform" type="rotate" values="-6;6;-6" dur="3.1s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+    <g transform="translate(720,240)"><g><animateTransform attributeName="transform" type="rotate" values="6;-6;6" dur="2.9s" repeatCount="indefinite"/><path d="M0 0 V-10 M0 -8 Q-8 -10 -10 -18 M0 -8 Q8 -10 10 -18"/></g></g>
+  </g>
+
+  <!-- 人物1：鍬で耕す -->
+  <g transform="translate(240,240)">
+    <ellipse cx="10" cy="2" rx="40" ry="5" fill="#000" opacity=".25"/>
+    <path d="M0 -60 L-14 0 M0 -60 L16 0" stroke="#2f3e5c" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <path d="M-14 0 h-8 M16 0 h10" stroke="#1d2433" stroke-width="7" stroke-linecap="round"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-8 0 -60;-8 0 -60;14 0 -60;-8 0 -60" keyTimes="0;.35;.55;1" calcMode="spline" keySplines="0 0 1 1;.5 0 .9 .5;.3 .2 .4 1" dur="1.4s" repeatCount="indefinite"/>
+      <path d="M0 -60 L6 -104" stroke="#6fdc6f" stroke-width="20" stroke-linecap="round"/>
+      <path d="M-3 -104 Q6 -97 15 -104" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="9" cy="-120" r="11" fill="#f2c9a0"/>
+      <path d="M0 -126 Q9 -142 18 -126Z" fill="#e8c66a"/>
+      <path d="M-10 -125 Q9 -133 28 -125" stroke="#e8c66a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g transform="translate(6,-98)">
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="-125;-125;20;-125" keyTimes="0;.35;.55;1" calcMode="spline" keySplines="0 0 1 1;.5 0 .9 .5;.3 .2 .4 1" dur="1.4s" repeatCount="indefinite"/>
+          <line x1="-8" y1="-6" x2="70" y2="60" stroke="#a87445" stroke-width="5" stroke-linecap="round"/>
+          <line x1="68" y1="58" x2="58" y2="80" stroke="#9aa3ad" stroke-width="7" stroke-linecap="round"/>
+          <path d="M0 0 L34 29" stroke="#6fdc6f" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="14" cy="12.6" r="4.5" fill="#f2c9a0"/>
+          <circle cx="34" cy="29.5" r="4.5" fill="#f2c9a0"/>
+        </g>
+      </g>
+    </g>
+    <!-- 土しぶき -->
+    <g fill="#8a5a36">
+      <circle cx="18" cy="-2" r="3"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 0;-16 -22;-16 -22" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/></circle>
+      <circle cx="20" cy="-2" r="2.5"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 0;4 -28;4 -28" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/></circle>
+      <circle cx="22" cy="-2" r="2"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 0;18 -18;18 -18" keyTimes="0;.55;.56;.85;1" dur="1.4s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+
+  <!-- 人物2：大根を収穫 -->
+  <g transform="translate(520,240)">
+    <ellipse cx="0" cy="2" rx="34" ry="5" fill="#000" opacity=".25"/>
+    <path d="M-55 -22 H-25 L-29 0 H-51Z" fill="#c08a4a"/>
+    <path d="M-48 -22 Q-50 -32 -46 -38 M-40 -22 Q-38 -34 -34 -38" stroke="#5cc85c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M-55 -15 H-26" stroke="#9a6a36" stroke-width="2"/>
+    <path d="M0 -40 L16 -24 L10 0 M0 -40 L-8 -20 L-16 0" stroke="#2f3e5c" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 0 -40;0 0 -40;-30 0 -40;-30 0 -40;0 0 -40" keyTimes="0;.3;.6;.75;1" dur="2.4s" repeatCount="indefinite"/>
+      <path d="M0 -40 L18 -75" stroke="#f0a04b" stroke-width="20" stroke-linecap="round"/>
+      <circle cx="26" cy="-88" r="11" fill="#f2c9a0"/>
+      <path d="M17 -95 Q26 -110 35 -95Z" fill="#e8c66a"/>
+      <path d="M7 -94 Q26 -102 45 -94" stroke="#e8c66a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M18 -75 L28 -30" stroke="#f0a04b" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="28" cy="-30" r="4.5" fill="#f2c9a0"/>
+    </g>
+  </g>
+</svg>
+</div>
+<script>
+  (function(){var s=document.getElementById('mabFarmSvg');if(s&&s.pauseAnimations&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){s.pauseAnimations();}})();
+</script>
       <div class="cards">
         <article class="card reveal">
           <img class="service-photo" src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="事業紹介に配置する仮写真" loading="lazy" width="800" height="500"><p class="photo-caption">仮写真 / MABの実際の写真に差し替え予定</p><div class="card-num">01</div>
@@ -819,6 +1069,59 @@ ul { list-style: none; }
     </div>
   </section>
 
+<section class="section" id="system">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">SYSTEM</span><span class="ja">生産体制と安全への取り組み</span></h2>
+    <p class="mab-lead reveal">作付けから出荷まで、部門ごとに計画を立てて効率よく。データと機械を活かしながら、何より人の安全を守る現場をつくっています。</p>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-num">01</div>
+        <h3>部門ごとの一貫体制</h3>
+        <p>作付け計画と機械作業を担う「生産管理課」、草取りから収穫・出荷までを担う「出荷管理課」、現場を支える「総務課」。役割を分けて、安定した生産を実現しています。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">02</div>
+        <h3>データとスマート農業</h3>
+        <p>土壌診断や過去の実績、気象データをもとに作業日を計画。生育状況はタブレットで記録・共有し、翌年の計画に活かしています。ドローンやGPSトラクターの活用も進めています。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">03</div>
+        <h3>機械と車両の安全管理</h3>
+        <p>農業機械は教育を受けた者だけが使用し、作業前後の点検を徹底。定期点検と計画整備で、事故を未然に防ぎます。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">04</div>
+        <h3>災害に強い農業</h3>
+        <p>自然災害時は人命を最優先に。事業継続計画（BCP）に基づき、生産・出荷体制を早期に回復し、野菜の安定供給と地域農業の復旧に努めます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section mab-alt" id="social">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">SOCIAL</span><span class="ja">地域と未来を守る、農業の社会的使命</span></h2>
+    <p class="mab-lead reveal">目先の利益ではなく、次の世代につながる農業を。MABは農業を通じて、地域・環境・日本の食を守る存在であり続けます。</p>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-num">01</div>
+        <h3>地域社会への貢献</h3>
+        <p>地域での雇用創出と多様な人材の育成を通じて、地域農業の担い手としての責任を果たします。農業を「産業」として成長させ、地域経済を元気にします。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">02</div>
+        <h3>環境と未来への責任</h3>
+        <p>耕作放棄地ゼロへの挑戦をはじめ、土地・水・生態系を守る持続可能な農業に取り組み、次の世代へ畑と農業を引き継ぎます。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">03</div>
+        <h3>社会への還元</h3>
+        <p>生み出した利益を、納税・寄付・災害支援などを通じて社会へ還元します。社会とともに成長する企業であり続けます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
   <!-- AREA -->
   <section class="section area" id="area">
     <div class="container">
@@ -842,7 +1145,105 @@ ul { list-style: none; }
       </p>
       <p class="message-sign reveal">鹿児島県大崎町から、仲間とともに。— 株式会社MAB</p></div></div></div></section>
 
+<section class="section mab-alt" id="story">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">STORY</span><span class="ja">創業の原点</span></h2>
+    <p class="mab-lead reveal">会社の原点は、鹿児島県大崎町。代表自身の原点も、この地にあります。</p>
+    <ol class="mab-timeline">
+      <li class="reveal"><span class="when">START</span><b>資金ゼロ、仲間20名からの創業</b><p>20代で、先輩・後輩20名ほどの仲間を集めて起業。会社の作り方も経営も分からない中、「やるしかなかった」。それから15年、大崎町から歩み続けています。</p></li>
+      <li class="reveal"><span class="when">AGE 23</span><b>「あなたは、やりそうだ」</b><p>本格的に農業経営を始めたものの、どの銀行にも相手にされなかった頃。ある銀行の支店長が決裁し、3,000万円の融資が実現。「この期待だけは、絶対に裏切らない」と心に決めました。</p></li>
+      <li class="reveal"><span class="when">AGE 25</span><b>運命の出会い、そして使命へ</b><p>「日本一の農家」と呼ばれる会社の会長と出会い、「いつか、この人を超える」「日本の農業を変える存在になる」と誓う。それは野心ではなく、使命でした。</p></li>
+      <li class="reveal"><span class="when">NOW</span><b>世のため人のために、まず利益を</b><p>「利益が出ない＝お客様のため」という考えを改め、社員を幸せにするために本気で利益を出す経営へ。日本で最も多くの野菜を安定供給できる「日本一の農家」をめざしています。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="movie">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">MOVIE</span><span class="ja">YouTubeで見る、MABの現場</span></h2>
+    <p class="mab-lead reveal">耕作放棄地の再生、採用の裏側、農業のリアル。MABの挑戦を動画で発信しています。</p>
+    <div class="mab-movies">
+      <figure class="reveal"><div class="mab-yt"><iframe src="https://www.youtube-nocookie.com/embed/gopLYr4mvVo" title="荒れ果てた耕作放棄地を2年半で蘇らせた" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>「もう畑はいらない」荒れ果てた耕作放棄地を2年半で蘇らせた</figcaption></figure>
+      <figure class="reveal"><div class="mab-yt"><iframe src="https://www.youtube-nocookie.com/embed/_Y-IgdtFijA" title="数億円を投じた耕作放棄地再生の裏側" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>「成功する保証はなかった」数億円を投じた耕作放棄地再生の裏側</figcaption></figure>
+      <figure class="reveal"><div class="mab-yt"><iframe src="https://www.youtube-nocookie.com/embed/FEDY4EZ1UxU" title="外国人面接に5時間かける社長の本音" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>「『雇ってやる』なら採用する資格はない」外国人面接に5時間かける社長の本音</figcaption></figure>
+      <figure class="reveal"><div class="mab-yt"><iframe src="https://www.youtube-nocookie.com/embed/a63kF8DA4A4" title="ミャンマーの日本語学校を訪問しました" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>【日本を目指して猛勉強】ミャンマーの日本語学校を訪問しました</figcaption></figure>
+    </div>
+    <div class="mab-movie-more reveal"><a href="https://www.youtube.com/@mab_agri_saiyou" target="_blank" rel="noopener">YouTubeチャンネルで、もっと見る →</a></div>
+  </div>
+</section>
+
+<section class="section mab-alt" id="instagram">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">INSTAGRAM</span><span class="ja">畑の毎日を、Instagramで</span></h2>
+    <p class="mab-lead reveal">耕作放棄地の再生、収穫、仲間との日々。MABの「今」を発信しています。</p>
+    <div class="mab-insta">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DdTqUGttacz/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DdTqUGttacz/" target="_blank" rel="noopener">Instagramで見る</a></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DebGMUIGIro/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DebGMUIGIro/" target="_blank" rel="noopener">Instagramで見る</a></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DeQzAztFFxC/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DeQzAztFFxC/" target="_blank" rel="noopener">Instagramで見る</a></blockquote>
+    </div>
+    <div class="mab-movie-more reveal"><a href="https://www.instagram.com/mab_agri_saiyou/" target="_blank" rel="noopener">@mab_agri_saiyou をフォローする →</a></div>
+  </div>
+</section>
+
+<section class="section" id="tiktok">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">TIKTOK</span><span class="ja">60秒でわかる、MABの農業</span></h2>
+    <p class="mab-lead reveal">畑づくりの裏側から、ちょっと笑える現場の一コマまで。農業のリアルとかっこよさを、短い動画で届けています。</p>
+    <div class="mab-tiktok">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mab_agri_saiyou/video/7708937932303912244" data-video-id="7708937932303912244"><section><a href="https://www.tiktok.com/@mab_agri_saiyou/video/7708937932303912244" target="_blank" rel="noopener">【人手不足の末路】人が来なさすぎて、ついに「野菜」を面接し始めました〜いも編〜</a></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mab_agri_saiyou/video/7698970763616963841" data-video-id="7698970763616963841"><section><a href="https://www.tiktok.com/@mab_agri_saiyou/video/7698970763616963841" target="_blank" rel="noopener">野菜作りは畑を作るところから始まる</a></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mab_agri_saiyou/video/7696389276057111809" data-video-id="7696389276057111809"><section><a href="https://www.tiktok.com/@mab_agri_saiyou/video/7696389276057111809" target="_blank" rel="noopener">【社長の覚悟】社員を預かるとは僕にとって</a></section></blockquote>
+    </div>
+    <div class="mab-movie-more reveal"><a href="https://www.tiktok.com/@mab_agri_saiyou" target="_blank" rel="noopener">TikTokで @mab_agri_saiyou を見る →</a></div>
+  </div>
+</section>
+
   <!-- COMPANY -->
+  <section class="section" id="work">
+  <div class="container">
+    <h2 class="sec-title reveal"><span class="en">WORK</span><span class="ja">MABで働く — 生涯の自己実現の舞台</span></h2>
+    <p class="mab-lead reveal">誠実さと、たゆまぬ自己鍛錬、人のために尽くせる心を持った人と一緒に働きたい。経験は問いません。挑戦する人を、会社が全力で育てます。</p>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-num">01</div>
+        <h3>専門的な教育訓練</h3>
+        <p>農業技術や持続可能な農業の最新の知識を学べる環境で、一人ひとりの力を最大限に伸ばします。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">02</div>
+        <h3>透明な評価と報酬</h3>
+        <p>成果だけでなく、安全・品質・日々の行動・チームワークも正当に評価。G1〜G6の等級制度で、成長が処遇に反映されます。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">03</div>
+        <h3>キャリアの成長機会</h3>
+        <p>内部昇進や専門性の高い職務への異動を支援し、一人ひとりが自分のキャリアを描けるようにしています。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">04</div>
+        <h3>健康と安全を第一に</h3>
+        <p>現場での安全対策を徹底し、社員の健康と安全を守る制度を整えています。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">05</div>
+        <h3>経営者マインドを育てる</h3>
+        <p>「もし自分が経営者だったら」と考え、行動できる人へ。正しい判断力・実行力・リーダーシップを磨けます。</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">06</div>
+        <h3>仲間と過ごす一年</h3>
+        <p>毎年の収穫祭や花見、社員旅行など、仲間との時間も大切にしています。</p>
+      </article>
+    </div>
+    <div class="mab-events reveal">
+      <span><small>4月</small>花見</span>
+      <span><small>7月</small>社員旅行</span>
+      <span><small>11月</small>収穫祭</span>
+      <span><small>2月・8月</small>全員参加のキックオフ会議</span>
+    </div>
+  </div>
+</section>
+
   <section class="section company" id="company">
     <div class="container">
       <h2 class="sec-title reveal"><span class="en">COMPANY</span><span class="ja">会社概要</span></h2>
@@ -1123,5 +1524,7 @@ document.querySelectorAll(".card").forEach((card) => {
  });
 })();
 </script>
+<script async src="https://www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
