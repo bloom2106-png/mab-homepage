@@ -698,6 +698,8 @@ ul { list-style: none; }
   .mab-map-note{margin-top:8px;text-align:right;color:#9aa89a;font-size:12px}
   @media (max-width:860px){#area .container{grid-template-columns:1fr}.mab-map{margin:0 auto}.mab-map-note{text-align:center}}
   @media (prefers-reduced-motion:reduce){.mab-route{animation:none}.mab-veg{display:none}}
+  .lit-icon{display:block;width:24px;height:24px;background:var(--white);-webkit-mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAACeElEQVR4AeycQUrEQBBFjRvdCIIg6BkEz+IJXLt34W30BuJJBL2CIG50qS6krYGZRaCZJqlU/07mDV1q0lb/5D1qJbi/19gnpfSY5vO58eJrToD3hebWjwCxMQQgQExAHM8EIEBMQBzPBCBATEAczwQgQECgoUgmQCyjOQFd1111FT/G/9Dq0kqymhNQm4K5/rV6sdxzq+pr5wVsiJuEd/v5yarqQkAf90P/Mv4KAX3Gb/3L+CsExDPemoCArXjiN90C7K+Hh1bHA8qdGY+lXsIUMG7tcb8G1Jn9LmtNYAoB66NK39jPEUBAjkrFewioCDsXhYAclYr3EFARdi4KATkqFe8hoCLsXBQCclQq3kNARdi5KATkqFS8h4Bg2KXjEVAiFLyPgGDApeMRUCIUvI+AYMCl4xFQIhS8j4BgwKXjEVAiFLyPgGDApeMRUCIUvI+AYMCl45cpoPTWDe0jQCwDAQgQExDHMwEIEBMQxzMBCBATEMczAQgQExDHMwHLESB+k5nGMwFicQhAgJiAOJ4JQICYgDieCUCAmIA4nglAgJiAOJ4JcArwtiPAS9DZjwAnQG87ArwEnf0IcAL0tiPAS9DZjwAnQG87ArwEnf0IcAL0tiPAS9DZjwAnQG/7PAV437qhfgSIZSCgL+DZLk8GlPuffSPAaG9W13V/Vp8D6nvTO/Y7AsaSm6gPAROBHHuMQsDR2IddYp9CwN0SQY59J4WA65TS6dgHXlqfQsCK4YdJuLA6WF3scqkErJi/2pcfk1Bz3VtmU2uAgKaeezEPgwCxSgQgQExAHM8EIEBMQBzPBCBATEAczwQgQExAHM8EFAREb/8DAAD//x2f+AoAAAAGSURBVAMA60FyPYMlHcUAAAAASUVORK5CYII=) center/contain no-repeat;mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAACeElEQVR4AeycQUrEQBBFjRvdCIIg6BkEz+IJXLt34W30BuJJBL2CIG50qS6krYGZRaCZJqlU/07mDV1q0lb/5D1qJbi/19gnpfSY5vO58eJrToD3hebWjwCxMQQgQExAHM8EIEBMQBzPBCBATEAczwQgQECgoUgmQCyjOQFd1111FT/G/9Dq0kqymhNQm4K5/rV6sdxzq+pr5wVsiJuEd/v5yarqQkAf90P/Mv4KAX3Gb/3L+CsExDPemoCArXjiN90C7K+Hh1bHA8qdGY+lXsIUMG7tcb8G1Jn9LmtNYAoB66NK39jPEUBAjkrFewioCDsXhYAclYr3EFARdi4KATkqFe8hoCLsXBQCclQq3kNARdi5KATkqFS8h4Bg2KXjEVAiFLyPgGDApeMRUCIUvI+AYMCl4xFQIhS8j4BgwKXjEVAiFLyPgGDApeMRUCIUvI+AYMCl45cpoPTWDe0jQCwDAQgQExDHMwEIEBMQxzMBCBATEMczAQgQExDHMwHLESB+k5nGMwFicQhAgJiAOJ4JQICYgDieCUCAmIA4nglAgJiAOJ4JcArwtiPAS9DZjwAnQG87ArwEnf0IcAL0tiPAS9DZjwAnQG87ArwEnf0IcAL0tiPAS9DZjwAnQG/7PAV437qhfgSIZSCgL+DZLk8GlPuffSPAaG9W13V/Vp8D6nvTO/Y7AsaSm6gPAROBHHuMQsDR2IddYp9CwN0SQY59J4WA65TS6dgHXlqfQsCK4YdJuLA6WF3scqkErJi/2pcfk1Bz3VtmU2uAgKaeezEPgwCxSgQgQExAHM8EIEBMQBzPBCBATEAczwQgQExAHM8EFAREb/8DAAD//x2f+AoAAAAGSURBVAMA60FyPYMlHcUAAAAASUVORK5CYII=) center/contain no-repeat;transition:background .3s}
+  .sns a:hover .lit-icon{background:var(--bg)}
   #social .cards{grid-template-columns:repeat(3,1fr)}
   @media (max-width:860px){
     #social .cards{grid-template-columns:1fr}
@@ -1216,7 +1218,7 @@ ul { list-style: none; }
         </li>
         <li>
           <a href="https://lit.link/m_ab" target="_blank" rel="noopener" aria-label="lit.link（リンクまとめ）">
-            <span class="sns-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.59 13.41a1 1 0 0 1 0-1.41l3.3-3.3a1 1 0 1 1 1.41 1.41l-3.3 3.3a1 1 0 0 1-1.41 0zm-2.12 4.24a3 3 0 0 1-4.24-4.24l2.83-2.83a3 3 0 0 1 4.03-.18 1 1 0 1 0 1.3-1.52 5 5 0 0 0-6.75.29L2.81 12a5 5 0 0 0 7.07 7.07l1.42-1.41a1 1 0 0 0-1.42-1.42zM21.19 4.81a5 5 0 0 0-7.07 0L12.7 6.22a1 1 0 0 0 1.42 1.42l1.41-1.42a3 3 0 0 1 4.24 4.24l-2.83 2.83a3 3 0 0 1-4.03.18 1 1 0 1 0-1.3 1.52 5 5 0 0 0 6.75-.29L21.19 12a5 5 0 0 0 0-7.19z"/></svg></span>
+            <span class="sns-icon"><i class="lit-icon" aria-hidden="true"></i></span>
             <span class="sns-name">lit.link</span>
           </a>
         </li>
